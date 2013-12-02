@@ -15,7 +15,8 @@ CREATE TABLE `user` (
 DROP TABLE IF EXISTS `card`;
 CREATE TABLE `card` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned,
+  `created_by` int(10) unsigned,
   `adresa` varchar(100),
   `web` varchar(100),
   `telefon` varchar(100),
@@ -23,7 +24,8 @@ CREATE TABLE `card` (
   `facebook` varchar(100),
   `linkedin` varchar(100),
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  CONSTRAINT `fk_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `fk_user2` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
