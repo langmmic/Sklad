@@ -26,8 +26,7 @@ CREATE TABLE `card` (
   `facebook` varchar(100),
   `linkedin` varchar(100),
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `fk_user2` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`)
+  CONSTRAINT `fk_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `friendship`;
