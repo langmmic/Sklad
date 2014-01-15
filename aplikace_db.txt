@@ -1,0 +1,28 @@
+DROP TABLE IF EXISTS `Obchody`;
+DROP TABLE IF EXISTS `Akce`;
+
+CREATE TABLE `Obchody` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(60) NOT NULL,
+  `password` char(60) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `street` varchar(100) NOT NULL,
+  `number` varchar(100) NOT NULL,
+  `zip` varchar(100) NOT NULL,      // psc
+  `logo` varchar(256),      // relativni odkaz  na server
+  `gender` varchar(100),   // male,female,unisex
+  `size` varchar(100),     // 1 - malicky butik, 2 - stredne velky obchod, 3 - velika prodejna typu new yorker
+  PRIMARY KEY (`id`),  
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `Akce` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `date` DATE,
+  `amount` int(10),
+  `id_shop` int(10) unsigned,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_shop` FOREIGN KEY (`id_shop`) REFERENCES `Obchody` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
