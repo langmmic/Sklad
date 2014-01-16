@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS `Obchody`;
 DROP TABLE IF EXISTS `Akce`;
 
-CREATE TABLE `Obchody` (
+CREATE TABLE `Shop` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(60) NOT NULL,
   `password` char(60) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE `Obchody` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `Akce` (
+CREATE TABLE `Event` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `date` DATE,
   `amount` int(10),
